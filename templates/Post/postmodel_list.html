@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block topnews %}
+    <section class="banner_post">
+        <div class="container-fluid">
+            <div class="row justify-content-between">
+                {% for post in postmodel_list %}
+                    <div class="banner_post_1 banner_post_bg_1" style="background-image: url({{ post.image.url }});" >
+                    <div class="banner_post_iner text-center">
+                        <a href="{% url 'post_detail' pk=post.pk %}"><h2>{{ post.title }}</h2></a>
+                        <p>{{ post.date }}</p>
+                    </div>
+
+                    </div>
+                {% endfor %}
+
+        </div>
+        </div>
+    </section>
+{% endblock topnews %}
+
+{% block post %}
+    {% for post in view.get_post %}
+        <div class="col-lg-6 col-sm-6">
+            <div class="single_post post_1">
+                <div class="single_post_img">
+                    <a href="{% url 'post_detail' pk=post.pk %}">
+                        <img src="{{ post.image.url }}" alt="">
+                    </a>
+                </div>
+                <div class="single_post_text text-center">
+                    <a href="{% url 'post_detail' pk=post.pk %}"><h4>{{ post.title }}</h4></a>
+                    <p>{{ post.date }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock post %}
