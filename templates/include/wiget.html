@@ -1,0 +1,110 @@
+{% load static %}
+<div class="col-lg-4">
+    <div class="news__matches js-matches-controller">
+        <div class="matches main-block main-block_lighten js-matches-sidebar">
+            <div class="main-header main-header_lighten-gray main-header_flex main-header_matches-control">
+                <div class="main-title main-title_darken">
+                    <h2 class="main-title__title">Матчи</h2>
+                </div>
+            </div>
+            <div class="matches-items matches-items_results js-items  active" data-category="all">
+                {% for game in view.get_game %}
+                    {% if game.active == True %}
+                        <div class="matches-items__item matches-items__item_live">
+                            <div class="matches-item  matches-item_score ">
+                                <div class="matches-item__team matches-item__team_left ">
+                                    <div class="matches-item__logo-team">
+                                        <img src="{{ game.comand1.logo.url}}" alt="">
+                                    </div>
+                                    <div class="matches-item__data-team">
+                                        <div class="matches-item__name-team">{{ game.comand1 }}</div>
+                                        <div class="matches-item__bets-percent">{{ game.coefficient1 }}</div>
+                                    </div>
+                                </div>
+                                <div class="matches-item__wrapper-info">
+                                    <div class="matches-item__game-logo matches-item__game-logo_dota2"></div>
+                                    <div class="matches-item__game-info">
+                                        <div class="matches-item__text-info">LIVE</div>
+                                        {#                                        <div class="matches-item__text-info">BO3</div>#}
+                                    </div>
+                                </div>
+                                <div class="matches-item__team matches-item__team_right ">
+                                    <div class="matches-item__data-team">
+                                        <div class="matches-item__name-team">{{ game.comand2 }}</div>
+                                        <div class="matches-item__bets-percent">{{ game.coefficient2 }}%</div>
+                                    </div>
+                                    <div class="matches-item__logo-team">
+                                        <img src="{{ game.comand2.logo.url}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% elif game.active == False %}
+                        <div class="matches-items__item ">
+                            <div class="matches-item  matches-item_score ">
+                                <div class="matches-item__team matches-item__team_left ">
+                                    <div class="matches-item__logo-team">
+                                        <img src="{{ game.comand1.logo.url}}" alt="">
+                                    </div>
+                                    <div class="matches-item__data-team">
+                                        <div class="matches-item__name-team">{{ game.comand1 }}</div>
+                                        <div class="matches-item__bets-percent">{{ game.coefficient1 }}</div>
+                                    </div>
+                                </div>
+                                <div class="matches-item__wrapper-info">
+                                    <div class="matches-item__game-logo matches-item__game-logo_dota2"></div>
+                                    <div class="matches-item__game-info">
+                                        <div class="matches-item__text-info">{{ game.date }}</div>
+                                        {#                                    <div class="matches-item__text-info">BO1</div>#}
+                                    </div>
+                                </div>
+                                <div class="matches-item__team matches-item__team_right ">
+                                    <div class="matches-item__data-team">
+                                        <div class="matches-item__name-team">{{ game.comand2 }}</div>
+                                        <div class="matches-item__bets-percent">{{ game.coefficient2 }}</div>
+                                    </div>
+                                    <div class="matches-item__logo-team">
+                                        <img src="{{ game.comand2.logo.url}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        </div> </div>
+    <div class="sidebar_widget">
+
+        <div class="single_sidebar_wiget">
+            <div class="sidebar_tittle">
+                <h3>Live</h3>
+            </div>
+            {% for stream in view.get_livestream %}
+            <div class="single_catagory_post post_2 ">
+                <div class="category_post_img">
+                    <iframe src="{{ stream.link }}&autoplay=false" rel="stream" site="twitch" frameborder="0" allowfullscreen="" height="178" width="320"></iframe>
+                    <a href="https://www.twitch.tv/weplayesport_ru?tt_content=text_link&tt_medium=live_embed" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;"></a>
+                </div>
+                <div class="post_text_1 pr_30">
+                    <a href="single-blog.html">
+{#                        <h3>Subdue lesser beast winged#}
+{#                            bearing meat tree one</h3>#}
+{#                    </a>#}
+{#                    <p><span> By Michal</span> / March 30</p>#}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

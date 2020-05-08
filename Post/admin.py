@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django import forms
 from django.utils.safestring import mark_safe
-from .models import PostModel, ReitingModel, CountryModel, ComandModel, PlayerModel, TournamentModel, GameModel, CommentModel
+from .models import PostModel, ReitingModel, CountryModel, ComandModel, PlayerModel, TournamentModel, GameModel, CommentModel, ChanelModel, VideoModel
 
 @admin.register(PostModel)
 class PostAdmin(admin.ModelAdmin):
@@ -78,3 +78,20 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'post', 'date_create', 'publick')
     list_filter = ('date_create',)
     search_fields = ('name', 'post')
+
+@admin.register(ChanelModel)
+class ChanelAdmin(admin.ModelAdmin):
+    list_display = ('name', 'get_image')
+    search_fields = ('name',)
+
+    def get_image(self, obj):
+        return mark_safe(f'<img src="{obj.logo.url}" width="40", height="40">')
+
+    get_image.short_description = 'Логотип канала'
+
+@admin.register(VideoModel)
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ('title', 'link', 'chanel', 'tournament', 'game', 'date', 'live')
+    list_filter = ('date', 'chanel', 'tournament')
+    search_fields = ('title', 'chanel', 'tournament')
+    list_editable = ('live',)

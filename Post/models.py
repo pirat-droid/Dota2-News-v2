@@ -81,6 +81,7 @@ class GameModel(models.Model):
     tournament = models.ForeignKey(TournamentModel, on_delete=models.CASCADE)
     active = models.BooleanField('Идёт в данный момент', default=False)
     last_game = models.BooleanField('Игра уже прошла', default=False)
+    link = models.CharField('Сыылка на тотализатор', max_length=150, default=False)
     date = models.DateTimeField('Время начала игры', blank=False)
 
     def __str__(self):
@@ -120,3 +121,31 @@ class CommentModel(models.Model):
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
+
+class ChanelModel(models.Model):
+    name = models.CharField('Название канала', max_length=150)
+    logo = models.ImageField('Логотип канала', upload_to='chanel/logo')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Канал'
+        verbose_name_plural = 'Каналы'
+
+class VideoModel(models.Model):
+    title = models.CharField('Название', max_length=150)
+    discription = models.TextField('Описание', blank=True)
+    tournament = models.ForeignKey(TournamentModel, on_delete=models.SET_NULL, null=True, verbose_name='Турнир', blank=True)
+    game = models.ForeignKey(GameModel, on_delete=models.SET_NULL, null=True, verbose_name='Игра', blank=True)
+    chanel = models.ForeignKey(ChanelModel, on_delete=models.SET_NULL, null=True, verbose_name='Канал')
+    date = models.DateField(auto_now_add=True)
+    live = models.BooleanField('Прямой эфир', default=False)
+    link = models.CharField('Ссылка на видео', max_length=150)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Видео'
+        verbose_name_plural = 'Видосы'

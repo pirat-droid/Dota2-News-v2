@@ -3233,7 +3233,7 @@ ul {
 
 /* line 16, /Applications/MAMP/htdocs/palash/cl/july 2019/191 Lifeleck Blog/191 Lifeleck Blog html/sass/_all_post.scss */
 .all_post .sidebar_widget .single_sidebar_wiget {
-  background-color: #fbf2ee;
+  /*background-color: #eaeaea;*/
   padding: 30px;
   margin-bottom: 30px;
 }
@@ -3262,15 +3262,15 @@ ul {
 }
 
 /* line 35, /Applications/MAMP/htdocs/palash/cl/july 2019/191 Lifeleck Blog/191 Lifeleck Blog html/sass/_all_post.scss */
-.all_post .sidebar_widget .sidebar_tittle h3:after {
-  position: absolute;
-  content: "";
-  width: 60px;
-  height: 2px;
-  bottom: 12px;
-  background-color: #fc4600;
-  left: 200px;
-}
+/*.all_post .sidebar_widget .sidebar_tittle h3:after {*/
+/*  position: absolute;*/
+/*  content: "";*/
+/*  width: 60px;*/
+/*  height: 2px;*/
+/*  bottom: 12px;*/
+/*  background-color: #fc4600;*/
+/*  left: 200px;*/
+/*}*/
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 35, /Applications/MAMP/htdocs/palash/cl/july 2019/191 Lifeleck Blog/191 Lifeleck Blog html/sass/_all_post.scss */
@@ -5376,3 +5376,388 @@ h6 {
 .fancybox-slide--current .animated-modal p {
   transition-delay: .3s;
 }
+
+/* wiget game */
+
+.news__matches {
+  width: 100%;
+  margin-top: 0;
+  border-left: 1px solid #e3e3e3;
+  display: -webkit-box;
+  display: flex;
+  margin-top: 30px;
+  -webkit-box-ordinal-group: 4;
+  order: 3;
+}
+
+.matches {
+  width: 100%;
+}
+
+.main-block_lighten {
+  background-color: #fff;
+}
+
+.main-block {
+  padding: 30px;
+  padding: 15px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.main-header_matches-control {
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: baseline;
+  align-items: baseline;
+}
+
+.main-header_lighten-gray {
+  border-color: #efefef;
+}
+
+.main-header_flex {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.main-header {
+  padding-bottom: 11px;
+  border-bottom: 1px solid #f0f0f0;
+  border-bottom-color: rgb(240, 240, 240);
+}
+
+.main-title_darken .main-title__title {
+  color: #2e2f30;
+}
+
+.main-title__title {
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+}
+
+.main-tabs {
+  display: -webkit-box;
+  display: flex;
+  margin: 0 -9px;
+}
+
+.main-tabs__control.active {
+  color: #d30000;
+}
+
+.main-tabs__control {
+  transition: color .2s;
+  position: relative;
+  margin: 0 9px;
+  text-transform: uppercase;
+  color: #2e2f30;
+  cursor: pointer;
+}
+
+.main-tabs__control.active::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.main-tabs__control::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #d30000;
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.matches-items.active {
+  display: block;
+}
+
+.matches-items {
+  -webkit-columns: 1;
+  columns: 1;
+  column-gap: 30px;
+  padding-top: 15px;
+}
+
+.matches-items__item {
+  transition: ease-in-out .2s;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.matches-items__item_live {
+  background-color: rgba(104,177,28,.12);
+}
+
+.matches-item {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  transition: ease-in-out .2s;
+}
+
+.matches-item__team_left {
+  border-radius: 0 4px 4px 0;
+}
+
+.matches-item__team {
+  width: 100%;
+  padding: 10px 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.matches-item__logo-team {
+  width: 45px;
+  text-align: center;
+  -webkit-box-flex: 0;
+  flex: none;
+}
+
+.matches-item__logo-team img {
+  margin: -1px 0;
+  padding: 0 8px;
+}
+
+.matches-item_score .matches-item__team_left .matches-item__data-team {
+  -webkit-box-align: start;
+  align-items: flex-start;
+}
+
+.matches-item__data-team {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.matches-item__name-team {
+  width: 60px;
+  margin-bottom: 2px;
+  width: 58px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 14px;
+  color: #2e2f30;
+}
+
+.matches-item__bets-percent {
+    line-height: 14px;
+    color: #585c60;
+}
+
+.matches-item_score .matches-item__team_left .matches-item__data-team::after {
+    right: 5px;
+}
+
+
+.matches-item_score .matches-item__team_left .matches-item__data-team::after {
+
+    right: 5px;
+
+}
+.matches-item__data-team::after {
+
+    content: '';
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border-radius: 4px;
+    background: url(/svg/sprite.svg?103) no-repeat;
+        background-position-x: 0%;
+        background-position-y: 0%;
+    background-position: 16.34980988593156% 93.87351778656127%;
+    width: 19px;
+    height: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s ease-in-out;
+    will-change: transform;
+
+}
+
+.matches-item__wrapper-info {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    z-index: 30;
+    -webkit-box-flex: 0;
+    flex: none;
+    min-width: 38px;
+}
+
+.matches-item__game-logo_dota2 {
+    background: url(/svg/sprite.svg?103) no-repeat;
+        background-position-x: 0%;
+        background-position-y: 0%;
+    background-position: 28.81679389312977% 89.06560636182903%;
+    width: 21px;
+    height: 21px;
+}
+
+.matches-item__game-logo {
+    margin-bottom: 3px;
+}
+
+.matches-item__game-info {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.matches-item__text-info {
+    position: relative;
+    padding: 0 5px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #2e2f30;
+}
+
+.matches-item__text-info::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    top: 50%;
+    right: -1px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 2px;
+    background-color: #2e2f30;
+}
+
+.matches-item__text-info {
+    position: relative;
+    padding: 0 5px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #2e2f30;
+}
+
+.matches-item__team_right {
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    text-align: right;
+    border-radius: 4px 0 0 4px;
+}
+
+.matches-item__team {
+    width: 100%;
+    padding: 10px 0;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.matches-item_score .matches-item__team_right .matches-item__data-team {
+    -webkit-box-align: end;
+    align-items: flex-end;
+}
+
+.matches-item__data-team {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.matches-item__name-team {
+    width: 60px;
+}
+
+.matches-item__name-team {
+    margin-bottom: 2px;
+    width: 58px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 14px;
+    color: #2e2f30;
+}
+
+.matches-item__bets-percent {
+    line-height: 14px;
+    color: #585c60;
+}
+
+.matches-item_score .matches-item__team_right .matches-item__data-team::after {
+    left: 5px;
+}
+.matches-item__data-team::after {
+    content: '';
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border-radius: 4px;
+    background: url(/svg/sprite.svg?103) no-repeat;
+        background-position-x: 0%;
+        background-position-y: 0%;
+    background-position: 16.34980988593156% 93.87351778656127%;
+    width: 19px;
+    height: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s ease-in-out;
+    will-change: transform;
+}
+.matches-item__team_right {
+    text-align: right;
+}
+
+.matches-item__logo-team {
+    width: 45px;
+    text-align: center;
+    -webkit-box-flex: 0;
+    flex: none;
+}
+
+.matches-item__logo-team img {
+    margin: -1px 0;
+    padding: 0 8px;
+}
+
