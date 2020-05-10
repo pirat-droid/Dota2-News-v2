@@ -75,9 +75,10 @@ class ReitingAdmin(admin.ModelAdmin):
 
 @admin.register(CommentModel)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'post', 'date_create', 'publick')
+    list_display = ('post_id', 'date_create', 'publick')
     list_filter = ('date_create',)
-    search_fields = ('name', 'post')
+    list_editable = ('publick',)
+    search_fields = ('post_id',)
 
 @admin.register(ChanelModel)
 class ChanelAdmin(admin.ModelAdmin):

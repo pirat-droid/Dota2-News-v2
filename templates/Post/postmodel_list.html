@@ -7,7 +7,7 @@
                 {% for post in postmodel_list %}
                     <div class="banner_post_1 banner_post_bg_1" style="background-image: url({{ post.image.url }});" >
                     <div class="banner_post_iner text-center">
-                        <a href="{% url 'post_detail' pk=post.pk %}"><h3>{{ post.title }}</h3></a>
+                        <a href="{{ post.get_absolute_url }}"><h3>{{ post.title }}</h3></a>
                         <p>{{ post.date }}</p>
                     </div>
 
@@ -24,12 +24,12 @@
         <div class="col-lg-6 col-sm-6">
             <div class="single_post post_1">
                 <div class="single_post_img">
-                    <a href="{% url 'post_detail' pk=post.pk %}">
+                    <a href="{{ post.get_absolute_url }}">
                         <img src="{{ post.image.url }}" alt="">
                     </a>
                 </div>
                 <div class="single_post_text text-center">
-                    <a href="{% url 'post_detail' pk=post.pk %}"><h4>{{ post.title }}</h4></a>
+                    <a href="{{ post.get_absolute_url }}"><h4>{{ post.title }}</h4></a>
                     <p>{{ post.date }}</p>
                 </div>
             </div>

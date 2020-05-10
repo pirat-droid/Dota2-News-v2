@@ -2,8 +2,10 @@ import datetime
 
 from django.db import models
 from django.conf import settings
+from django.urls import reverse
 from django.utils import timezone
 import datetime
+from django.contrib.auth.models import User
 
 class PostModel(models.Model):
     title = models.CharField("Название поста", max_length=100, blank=False)
@@ -15,6 +17,10 @@ class PostModel(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.id)])
+        # return reverse('post_detail', kwargs={"slug": self.url})
 
     class Meta:
         verbose_name = "Пост"
@@ -108,15 +114,15 @@ class ReitingModel(models.Model):
         verbose_name_plural = 'Рейтинги'
 
 class CommentModel(models.Model):
-    name = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    # name = models.ForeignKey(User, related_name='Commenter')
-    post = models.ForeignKey(PostModel, on_delete=models.CASCADE)
+    # name = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Commenter')
+    post = models.ForeignKey(PostModel, on_delete=models.CASCADE, related_name='comments')
     text = models.TextField('Текст комментария', max_length=500, blank=False)
     date_create = models.DateTimeField('Время создание комментария', auto_now_add=True, blank=False)
     publick = models.BooleanField('Виден пользователям', default=True)
 
     def __str__(self):
-        return f'{self.name}-{self.date_create}'
+        return f'{self.date_create}'
 
     class Meta:
         verbose_name = 'Комментарий'
