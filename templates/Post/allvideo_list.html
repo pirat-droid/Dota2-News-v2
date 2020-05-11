@@ -12,10 +12,13 @@
                         <div class="col-lg-6 col-sm-6">
                             <div class="single_post post_1">
                                 <div class="single_post_img">
-                                    <img src="{{ post.image.url }}" alt="">
+                        <a data-fancybox data-width="740" data-height="360" href="https://www.youtube.com/watch?v={{ post.link }}">
+                            <img class="card-img-top img-fluid" src="https://img.youtube.com/vi/{{ post.link }}/mqdefault.jpg" />
+                        </a>
+{#                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/REAezgoBJsY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyro#}
                                 </div>
                                 <div class="single_post_text text-center">
-                                    <a href="{{ post.get_absolute_url }}"><h4>{{ post.title}}</h4></a>
+                                                            <a data-fancybox data-width="740" data-height="360" href="https://www.youtube.com/watch?v={{ post.link }}"><h4>{{ post.title}}</h4></a>
                                     <p>Posted on {{ post.date}}</p>
                                 </div>
                             </div>

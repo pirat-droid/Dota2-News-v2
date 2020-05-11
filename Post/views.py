@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.views.decorators.clickjacking import xframe_options_exempt
 from django.views.generic import ListView, DetailView, CreateView, View
-from .models import PostModel, GameModel, VideoModel, ReitingModel
+from .models import PostModel, GameModel, VideoModel, ReitingModel, TournamentModel, ComandModel
 from .forms import CommentForm
 
 class Post:
@@ -71,3 +71,11 @@ class Reiting(ListView, Game, LiveStream):
     model = ReitingModel
     queryset = ReitingModel.objects.all()
     template_name = 'Post/reiting_list.html'
+
+class Tournament(DetailView, Game, LiveStream):
+    """Описание турнира"""
+    model = TournamentModel
+
+class Comand(DetailView, Game, LiveStream):
+    """Описание команды"""
+    model = ComandModel

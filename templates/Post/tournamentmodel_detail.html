@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block post %}
+    <section class="blog_area single-post-area all_post section_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 posts-list">
+                    <div class="single-post">
+                        <div class="feature-img">
+                            <img class="img-fluid" src="{{ tournamentmodel.logo.url}}" alt="">
+                        </div>
+                        <div class="blog_details">
+                            <h2>{{ tournamentmodel.name }}
+                            </h2>
+                            <ul class="blog-info-link mt-3 mb-4">
+                                <li><i class="far fa-comments"></i>Призовой фонд $ {{ tournamentmodel.prize_fond }}</li>
+                            </ul>
+                            <p class="excert">
+                                {{ tournamentmodel.discription|linebreaks }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock post %}
